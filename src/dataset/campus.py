@@ -21,7 +21,9 @@ import copy
 import time
 import cv2
 import os
+import logging
 
+logging.basicConfig(level=logging.DEBUG)  # This will show all debug messages
 
 class Campus(object):
     
@@ -227,16 +229,25 @@ class Campus(object):
         '''
         Extract single frame multi-view joints.
         '''
+
+        logging.debug('Inside getSingleFrameMultiView2DJoints for frame_id: %s', frame_id)
+
+        logging.debug('pose2d_file_dir: %s', self.pose2d_file_dir)
+
         if self.pose2d_file_dir[-1] == '/':
             self.pose2d_file_dir = self.pose2d_file_dir[:-1]
         dataset_name = self.pose2d_file_dir.split('/')[-2]
         camera_folder_list = glob.glob(os.path.join(self.pose2d_file_dir,'*'))
         
+        logging.debug('camera_folder_list: %s', camera_folder_list)
+
         joints_dict = {}
         for camera_folder in sorted(camera_folder_list):
             cam_name = camera_folder.split('/')[-1]
             pose2d_json_file = os.path.join(
                 self.pose2d_file_dir,cam_name,str(frame_id).zfill(8)+'.json')
+            
+            logging.debug('Checking pose2d_json_file: %s', pose2d_json_file)
             
             if os.path.exists(pose2d_json_file):
                 frame_joints = json.load(open(pose2d_json_file, 'r'))

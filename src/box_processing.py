@@ -16,6 +16,9 @@ import copy
 import time
 import cv2
 import os
+import logging
+
+logging.basicConfig(level=logging.DEBUG)  # This will show all debug messages
 
 
 def countNumJointsInsideImage(im_size, joints):
@@ -269,11 +272,15 @@ def extractBoxReIDFeature(boxcrop_dir, reid_model=None, log_file=None):
     '''
     import os, sys
     CURRENT_DIR = '/'.join(os.path.abspath(__file__).split('/')[:-1])
+
+    logging.debug('CURRENT_DIR: %s', CURRENT_DIR)
+
     sys.path.append(CURRENT_DIR)
     import subprocess
     
     box_file_list = getFilesOfType(boxcrop_dir, type_list=['*.jpg', '*.png'])
     if len(box_file_list) == 0:
+        logging.debug('The bounding box crops are not found.')
         return None
     print('\nExtract re-ID feature\n=============\nBoxes under {}.'.format(
         boxcrop_dir))

@@ -4,10 +4,16 @@
 @contact: sherlockliao01@gmail.com
 """
 
+import logging
+
+logging.basicConfig(level=logging.DEBUG)  # This will show all debug messages
+
 import os, sys
 MAIN_DIR = '/'.join(os.path.abspath(__file__).split('/')[:-2])
 sys.path.append(MAIN_DIR)
 sys.path.append('.')
+
+logging.debug('Checking MAIN_DIR: %s', MAIN_DIR)
 
 import argparse
 from os import mkdir
@@ -60,12 +66,18 @@ def main():
 
     num_gpus = int(os.environ["WORLD_SIZE"]) if "WORLD_SIZE" in os.environ else 1
 
+    logging.debug('Checking config_file: %s', args.config_file)
+
     if args.config_file != "":
         cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
     cfg.freeze()
 
     output_dir = cfg.OUTPUT_DIR
+
+    logging.debug('Checking OUTPUT_DIR: %s', output_dir)
+    logging.debug('Checking CUDA: %s', torch.cuda.is_available())
+
     if output_dir and not os.path.exists(output_dir):
         mkdir(output_dir)
 

@@ -3,7 +3,7 @@
 # platform: linux-64
 _libgcc_mutex=0.1=conda_forge
 _openmp_mutex=4.5=2_kmp_llvm
-absl-py=1.1.0=pypi_0
+# absl-py=1.1.0=pypi_0
 asttokens=2.0.5=pyhd3eb1b0_0
 backcall=0.2.0=pyhd3eb1b0_0
 blas=2.115=openblas
@@ -42,7 +42,7 @@ joblib=1.1.0=pyhd3eb1b0_0
 jpeg=9e=h7f8727e_0
 jupyter_client=7.2.2=py310h06a4308_0
 jupyter_core=4.10.0=py310h06a4308_0
-k-means-constrained=0.7.1=pypi_0
+# k-means-constrained=0.7.1=pypi_0
 kiwisolver=1.4.2=py310h295c915_0
 lame=3.100=h7b6447c_0
 lcms2=2.12=h3be6417_0
@@ -81,13 +81,13 @@ munkres=1.1.4=py_0
 ncurses=6.3=h5eee18b_3
 nest-asyncio=1.5.5=py310h06a4308_0
 nettle=3.7.3=hbbd107a_1
-numpy=1.23.1=pypi_0
+# numpy=1.23.1=pypi_0
 openblas=0.3.20=pthreads_h320a7e8_0
 opencv=4.5.4=py310h3dbb160_3
 openh264=2.1.1=h4ff587b_0
 openjpeg=2.4.0=h3ad879b_0
 openssl=1.1.1q=h166bdaf_0
-ortools=9.3.10497=pypi_0
+# ortools=9.3.10497=pypi_0
 packaging=21.3=pyhd3eb1b0_0
 parso=0.8.3=pyhd3eb1b0_0
 pcre=8.45=h295c915_0
@@ -97,7 +97,7 @@ pillow=9.2.0=py310hace64e9_0
 pip=22.1.2=py310h06a4308_0
 pixman=0.40.0=h7f8727e_1
 prompt-toolkit=3.0.20=pyhd3eb1b0_0
-protobuf=4.21.2=pypi_0
+# protobuf=4.21.2=pypi_0
 ptyprocess=0.7.0=pyhd3eb1b0_2
 pure_eval=0.2.2=pyhd3eb1b0_0
 pygments=2.11.2=pyhd3eb1b0_0
